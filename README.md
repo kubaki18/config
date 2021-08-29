@@ -8,3 +8,4 @@ All the config files I use I store here.
 ~/.config/qtile/autostart.sh
 ~/.Xresources
 ~/.xbindkeys
+~/.config/ranger/*
