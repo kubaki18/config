@@ -41,7 +41,7 @@ set expandtab
 set softtabstop=2
 
 
-colorscheme badwolf " molokai, srcery-vim
+colorscheme molokai
 syntax enable
 set number
 set relativenumber
@@ -81,6 +81,16 @@ set foldnestmax=10
 set foldmethod=indent
 
 
+""""ALT SETUP""""
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=50
+
 """"MAPPINGS""""
 let mapleader=","
 "nnoremap <space> za
@@ -92,9 +102,22 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>s :mksession<CR>
-nnoremap<leader>a :Ack
+nnoremap <leader>a :Ack
+nnoremap <M-j> :m.+1<CR>
+nnoremap <M-k> :m.-2<CR>==
+inoremap <M-j> <Esc>:m.+1<CR>==gi
+inoremap <M-k> <Esc>:m.-2<CR>==gi
+vnoremap <M-j> :m'>+1<CR>gv=gv
+vnoremap <M-k> :m'<-2<CR>gv=gv
+
+
+""""MUNDO""""
 let g:mundo_prefer_python3 = 1
 nnoremap <leader>u :MundoToggle<CR>
+
+
+""""VIMSPECTOR""""
+let g:vimspector_enable_mappings = 'HUMAN'
 
 
 """"CTRLP"""
