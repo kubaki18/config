@@ -17,7 +17,7 @@ runtime! archlinux.vim
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
 call pathogen#infect()
-" call pathogen#runtime_append_all_bundles()
+"call pathogen#runtime_append_all_bundles()
 
 set nocompatible
 syntax on
@@ -41,7 +41,7 @@ set expandtab
 set softtabstop=2
 
 
-colorscheme badwolf
+colorscheme molokai
 syntax enable
 set number
 set relativenumber
@@ -111,7 +111,7 @@ vnoremap <M-j> :m'>+1<CR>gv=gv
 vnoremap <M-k> :m'<-2<CR>gv=gv
 
 """"YCM""""
-nnoremap <F9> :YcmCompleter FixIt<CR>
+nnoremap <leader>f :YcmCompleter FixIt<CR>
 
 
 """"MUNDO""""
@@ -123,8 +123,11 @@ nnoremap <leader>u :MundoToggle<CR>
 let g:vimspector_enable_mappings = 'HUMAN'
 
 
-""""CTRLP"""
+""""CTRLP""""
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+""""Transparent Background""""
+hi Normal guibg=NONE ctermbg=NONE
