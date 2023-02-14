@@ -10,6 +10,8 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'mbbill/undotree'
+Plug 'sakhnik/nvim-gdb', {'do': ':!./install.sh'}
+Plug 'nanotech/jellybeans.vim', { 'tag': 'v1.7' }
 set encoding=UTF-8
 
 call plug#end()
@@ -40,6 +42,10 @@ set foldenable
 set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
+if has("termguicolors")
+    set termguicolors
+endif
+colorscheme jellybeans
 
 
 """"MAPPINGS""""
@@ -52,13 +58,14 @@ nnoremap gV `[v`]
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>ms :mksession<CR>
+nnoremap <leader>ms :mksession!<CR>
 nnoremap <M-j> :m.+1<CR>
 nnoremap <M-k> :m.-2<CR>==
 inoremap <M-j> <Esc>:m.+1<CR>==gi
 inoremap <M-k> <Esc>:m.-2<CR>==gi
 vnoremap <M-j> :m'>+1<CR>gv=gv
 vnoremap <M-k> :m'<-2<CR>gv=gv
+tnoremap <Esc> <C-\><C-n>
 
 
 """"NERDTREE""""
@@ -76,3 +83,7 @@ source $HOME/.config/nvim/plug-config/coc.vim
 
 """"UNDOTREE""""
 nnoremap <leader>u :UndotreeToggle<CR>
+
+
+""""NVIM-GDB""""
+"source $HOME/.config/nvim/neovim_gdb.vim
